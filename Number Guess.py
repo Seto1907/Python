@@ -1,10 +1,14 @@
 import random
+file = open("C:/Users/Seto/Desktop/numbers.txt","a")
+print('''Note:
+You have 5 healths. If your healths end, you lose. So be careful.''')
 while True:
     try:
         lowerRange = int(input("Enter lower range:"))
         upperRange = int(input("Enter upper range:"))
-        health = int(input("How many healths do you want?:"))
+        health = 5
         number = random.randint(lowerRange,upperRange)
+        file.write('{}\n'.format(number))
     except:
         print("The values you entered have to be integers!")
     else:
@@ -19,7 +23,8 @@ while True:
         choose = int(input("Choose:"))
         if choose==1:
             number = random.randint(lowerRange,upperRange)
-            health = int(input("How many healths do you want?:"))
+            file.write('{}\n'.format(number))
+            health = 5
         elif choose==2:
             print("Process is terminated.")
             break
@@ -40,4 +45,6 @@ Would you like to play again?
                 print("Process is terminated...")
                 break
             else:
-                continue
+                health = 5
+                number = random.randint(lowerRange, upperRange)
+file.close()
